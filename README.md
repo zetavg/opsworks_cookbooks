@@ -1,16 +1,18 @@
-Cookbooks Collection for OpsWorks App Server
-============================================
+Cookbooks Collection for OpsWorks
+=================================
 
-A collection of useful cookbooks for app servers on AWS OpsWorks.
+A collection of useful cookbooks for AWS OpsWorks.
 
 Cookbook and Recipes
 --------------------
 
 ### Utilities
 
+System utilities.
+
 #### Locale
 
-- `opsworks_app_server::locale_gen_zhtw` <kbd>Setup</kbd> - locale-gen zh_TW.UTF-8
+- `utilities::locale_gen_zhtw` <kbd>Setup</kbd> - locale-gen zh_TW.UTF-8
 
 #### Mosh
 
@@ -23,6 +25,8 @@ Mobile shell, replacement for SSH.
  - `zsh::default` <kbd>Setup</kbd>
 
 ### NewRelic
+
+Server monitoring with New Relic.
 
 #### NewRelic
 
@@ -47,19 +51,21 @@ Mobile shell, replacement for SSH.
 
 ### Rails
 
-#### Set App
+#### Command Line Shorthands
 
- - `opsworks_app_server::opsrp_setapp` <kbd>Setup</kbd> (for Passenger/Rails) - `bin/rake` tasks and `bin/rails console` with ease by downloading [this script](https://gist.github.com/Neson/9ec46f825eebadf06615) and alias it as `sa`.
+ - `rails::opsrp_setapp` <kbd>Setup</kbd> (for Passenger/Rails) - `bin/rake` tasks and `bin/rails console` with ease by downloading [this script](https://gist.github.com/Neson/9ec46f825eebadf06615) and alias it as `sa`.
 
 ### Webhooks
 
+Send custom HTTP callbacks while specific events occurs.
+
 #### Webhooks
 
- - `opsworks_app_server::webhooks_setup` <kbd>Setup</kbd>
- - `opsworks_app_server::webhooks_configure` <kbd>Configure</kbd>
- - `opsworks_app_server::webhooks_deploy` <kbd>Deploy</kbd>
- - `opsworks_app_server::webhooks_undeploy` <kbd>Undeploy</kbd>
- - `opsworks_app_server::webhooks_shutdown` <kbd>Shutdown</kbd>
+ - `webhooks::webhooks_setup` <kbd>Setup</kbd>
+ - `webhooks::webhooks_configure` <kbd>Configure</kbd>
+ - `webhooks::webhooks_deploy` <kbd>Deploy</kbd>
+ - `webhooks::webhooks_undeploy` <kbd>Undeploy</kbd>
+ - `webhooks::webhooks_shutdown` <kbd>Shutdown</kbd>
 
 ##### Attributes
 
@@ -72,31 +78,31 @@ Mobile shell, replacement for SSH.
   </tr>
   <tr>
     <td><tt>['webhooks_setup_url']</tt></td>
-    <td>Array</td>
+    <td>Array of Strings</td>
     <td>list of URLs to POST to</td>
     <td><tt>[]</tt></td>
   </tr>
   <tr>
     <td><tt>['webhooks_configure_url']</tt></td>
-    <td>Array</td>
+    <td>Array of Strings</td>
     <td>list of URLs to POST to</td>
     <td><tt>[]</tt></td>
   </tr>
   <tr>
     <td><tt>['webhooks_deploy_url']</tt></td>
-    <td>Array</td>
+    <td>Array of Strings</td>
     <td>list of URLs to POST to</td>
     <td><tt>[]</tt></td>
   </tr>
   <tr>
     <td><tt>['webhooks_undeploy_url']</tt></td>
-    <td>Array</td>
+    <td>Array of Strings</td>
     <td>list of URLs to POST to</td>
     <td><tt>[]</tt></td>
   </tr>
   <tr>
     <td><tt>['webhooks_shutdown_url']</tt></td>
-    <td>Array</td>
+    <td>Array of Strings</td>
     <td>list of URLs to POST to</td>
     <td><tt>[]</tt></td>
   </tr>

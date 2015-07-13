@@ -24,15 +24,13 @@ System utilities.
 
 Send custom HTTP callbacks while specific events occurs.
 
-#### Webhooks
-
  - `webhooks::webhooks_setup` <kbd>Setup</kbd>
  - `webhooks::webhooks_configure` <kbd>Configure</kbd>
  - `webhooks::webhooks_deploy` <kbd>Deploy</kbd>
  - `webhooks::webhooks_undeploy` <kbd>Undeploy</kbd>
  - `webhooks::webhooks_shutdown` <kbd>Shutdown</kbd>
 
-##### Attributes
+#### Attributes
 
 <table>
   <tr>
@@ -73,6 +71,22 @@ Send custom HTTP callbacks while specific events occurs.
   </tr>
 </table>
 
+### rsyslog Watch Files
+
+ - `rsyslog_watch_files::default` <kbd>Setup</kbd> - Setup watching custom files for rsyslog
+
+#### Attribute
+
+`node['rsyslog']['watch_files']`: A hash of files and associated tags that will be configured to be watched and included for rsyslog logging. Example:
+
+```ruby
+{
+  "/var/log/apache2/app-access.log":          "apache2-app-access",
+  "/var/log/apache2/app-error.log":           "apache2-app-error",
+  "/var/log/aws/opsworks/opsworks-agent.log": "opsworks-agent"
+}
+```
+
 3rd Party Cookbooks
 -------------------
 
@@ -109,7 +123,7 @@ Mobile shell, replacement for SSH.
 
 ### [papertrail-rsyslog](https://supermarket.chef.io/cookbooks/papertrail-rsyslog)
 
- - `papertrail::default` <kbd>Setup</kbd> - Setup logging to [Papertrail](https://papertrailapp.com/)
+ - `papertrail-rsyslog::default` <kbd>Setup</kbd> - Setup logging to [Papertrail](https://papertrailapp.com/) (the full cookbook name should be used for OpsWorks)
 
 ##### Attributes
 

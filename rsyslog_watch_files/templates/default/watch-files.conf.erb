@@ -1,0 +1,17 @@
+# Have rsyslog watch specific application files
+#
+
+$ModLoad imfile
+
+<%- @watch_files.each_with_index do |watch_file, index| %>
+
+# <%= watch_file[:tag] %>
+# <%= watch_file[:file_name] %>
+#
+$InputFileName <%= watch_file[:file_name] %>
+$InputFileTag <%= watch_file[:tag] %>
+$InputFileStateFile state_file_<%= watch_file[:sha] || index %>
+$InputFilePollInterval 10
+$InputRunFileMonitor
+
+<%- end %>

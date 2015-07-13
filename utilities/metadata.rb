@@ -1,0 +1,5 @@
+name              "utilities"
+maintainer        "Neson"
+maintainer_email  "neson@dex.tw"
+description       "System utilities."
+version           "1.0.0"

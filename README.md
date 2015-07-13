@@ -3,24 +3,21 @@ Cookbooks Collection for OpsWorks
 
 A collection of useful cookbooks for AWS OpsWorks.
 
-Cookbooks
----------
-
-### Utilities
+## Utilities
 
 System utilities.
 
-#### Locale
+### Locale
 
 - `utilities::locale_gen_zhtw` <kbd>Setup</kbd> - locale-gen zh_TW.UTF-8
 
-### Rails
+## Rails
 
-#### Command Line Shorthands
+### Command Line Shorthands
 
  - `rails::opsrp_setapp` <kbd>Setup</kbd> (for Passenger/Rails) - `bin/rake` tasks and `bin/rails console` with ease by downloading [this script](https://gist.github.com/Neson/9ec46f825eebadf06615) and alias it as `sa`.
 
-### Webhooks
+## Webhooks
 
 Send custom HTTP callbacks while specific events occurs.
 
@@ -30,7 +27,7 @@ Send custom HTTP callbacks while specific events occurs.
  - `webhooks::webhooks_undeploy` <kbd>Undeploy</kbd>
  - `webhooks::webhooks_shutdown` <kbd>Shutdown</kbd>
 
-#### Attributes
+### Attributes
 
 <table>
   <tr>
@@ -71,11 +68,13 @@ Send custom HTTP callbacks while specific events occurs.
   </tr>
 </table>
 
-### rsyslog Watch Files
+## rsyslog Watch Files
+
+Watch and send custom log files with rsyslog. Requires rsyslog.
 
  - `rsyslog_watch_files::default` <kbd>Setup</kbd> - Setup watching custom files for rsyslog
 
-#### Attribute
+### Attribute
 
 `node['rsyslog']['watch_files']`: A hash of files and associated tags that will be configured to be watched and included for rsyslog logging. Example:
 

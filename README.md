@@ -3,6 +3,20 @@ Cookbooks Collection for OpsWorks
 
 A collection of useful cookbooks for AWS OpsWorks.
 
+---
+
+ - [Utilities](#utilities)
+ - [Rails](#rails)
+ - [Webhooks](#webhooks)
+ - [rsyslog Watch Files](#rsyslog-watch-files)
+ - [3rd Party Cookbooks](#3rd-party-cookbooks)
+   - [Mosh](#mosh)
+   - [Zsh](#zsh)
+   - [New Relic](#new-relic)
+   - [papertrail-rsyslog](#papertrail-rsyslog)
+
+---
+
 ## Utilities
 
 System utilities.

@@ -1,6 +1,7 @@
 DEPENDENCIES
   mosh
   newrelic
+  papertrail-rsyslog (~> 1.2.0)
   zsh
 
 GRAPH
@@ -16,9 +17,12 @@ GRAPH
     curl (>= 0.0.0)
     python (>= 0.0.0)
     yum (~> 3.0)
+  papertrail-rsyslog (1.2.0)
+    rsyslog (~> 1.12.1)
   python (1.4.6)
     build-essential (>= 0.0.0)
     yum-epel (>= 0.0.0)
+  rsyslog (1.12.2)
   yum (3.6.1)
   yum-epel (0.6.2)
     yum (~> 3.2)

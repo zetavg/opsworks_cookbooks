@@ -3,8 +3,8 @@ Cookbooks Collection for OpsWorks
 
 A collection of useful cookbooks for AWS OpsWorks.
 
-Cookbook and Recipes
---------------------
+Cookbooks
+---------
 
 ### Utilities
 
@@ -13,41 +13,6 @@ System utilities.
 #### Locale
 
 - `utilities::locale_gen_zhtw` <kbd>Setup</kbd> - locale-gen zh_TW.UTF-8
-
-#### Mosh
-
-Mobile shell, replacement for SSH.
-
- - `mosh::default` <kbd>Setup</kbd>
-
-#### Zsh
-
- - `zsh::default` <kbd>Setup</kbd>
-
-### NewRelic
-
-Server monitoring with New Relic.
-
-#### NewRelic
-
- - `newrelic::default` <kbd>Setup</kbd> - installs the New Relic agent that performs the server monitoring
-
-##### Attributes
-
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['newrelic']['license']</tt></td>
-    <td>String</td>
-    <td>your newrelic license key</td>
-    <td><tt>undefined</tt></td>
-  </tr>
-</table>
 
 ### Rails
 
@@ -107,3 +72,54 @@ Send custom HTTP callbacks while specific events occurs.
     <td><tt>[]</tt></td>
   </tr>
 </table>
+
+3rd Party Cookbooks
+-------------------
+
+### Mosh
+
+Mobile shell, replacement for SSH.
+
+ - `mosh::default` <kbd>Setup</kbd>
+
+### Zsh
+
+ - `zsh::default` <kbd>Setup</kbd>
+
+### New Relic
+
+ - `newrelic::default` <kbd>Setup</kbd> - installs the New Relic agent that performs the server monitoring
+
+##### Attributes
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><tt>['newrelic']['license']</tt></td>
+    <td>String</td>
+    <td>your newrelic license key</td>
+    <td><tt>undefined</tt></td>
+  </tr>
+</table>
+
+### [papertrail-rsyslog](https://supermarket.chef.io/cookbooks/papertrail-rsyslog)
+
+ - `papertrail::default` <kbd>Setup</kbd> - Setup logging to [Papertrail](https://papertrailapp.com/)
+
+##### Attributes
+
+```js
+['papertrail']['port'] = The Papertrail log destination port number (required)
+['papertrail']['host'] = The Papertrail host address (defaults to logs)
+['papertrail']['syslog_selector'] = The syslog tags and types to stream into Papertrail (defaults to "*.*")
+['papertrail']['resume_retry_count'] = The number of times to retry the sending of failed messages (defaults to unlimited)
+['papertrail']['queue_disk_space'] = The maximum disk space allowed for queues (default to 100M)
+['papertrail']['enable_tls'] = Whether to encrypt all log traffic going into Papertrail (default to True)
+['papertrail']['certificate_src'] = The URL of the certificate file on the Papertrail server
+['papertrail']['certificate_checksum'] = The sha256 checksum for the Papertrail certificate file
+```

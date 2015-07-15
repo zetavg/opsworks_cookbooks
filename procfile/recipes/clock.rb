@@ -1,63 +1,67 @@
-node[:deploy].each do |application, _deploy|
-  ruby_block "Read Procfile and set the clock" do
-    block do
-      procfile_path = "#{node[:deploy][application][:deploy_to]}/current/Procfile"
+node[:deploy].each do |application, deploy|
 
-      clock_command = nil
+  procfile_path = "#{node[:deploy][application][:deploy_to]}/current/Procfile"
 
-      if File.exist?(procfile_path)
-        # Read the CWM version from file.
-        f = File.open(procfile_path)
+  clock_command = nil
 
-        pattern = /^clock: (?<command>.+)$/
+  if File.exist?(procfile_path)
 
-        f.each do |line|
-          if match = line.match(pattern)
-            clock_command = match['command']
-            break
-          end
-        end
+    f = File.open(procfile_path)
 
-        f.close
+    pattern = /^clock: (?<command>.+)$/
+
+    f.each do |line|
+      if match = line.match(pattern)
+        clock_command = match['command']
+        break
       end
+    end
 
-      if clock_command
-        template "#{node[:monit][:conf_dir]}/clock_#{application}.monitrc" do
-          owner 'root'
-          group 'root'
-          mode 0644
-          source "monitrc.conf.erb"
-          variables({
-            command: clock_command,
-            app_name: application,
-            process_type: 'clock',
-            process_count: 1
-          })
-        end
+    f.close
+  end
 
-        execute "Reload monit" do
-          command %Q{
-            monit reload
-          }
-        end
+  if clock_command
+    template "#{node[:monit][:conf_dir]}/clock_#{application}.monitrc" do
+      owner 'root'
+      group 'root'
+      mode 0644
+      source "monitrc.conf.erb"
+      variables({
+        command: clock_command,
+        app_name: application,
+        app_path: deploy[:deploy_to],
+        process_type: 'clock',
+        process_count: 1
+      })
+    end
 
-        execute "Restart clock" do
-          command %Q{
-            echo "sleep 20 && monit -g clock_#{application} restart all" | at now
-          }
-        end
+    execute "Reload monit" do
+      command %Q{
+        monit reload
+      }
+    end
 
-      else
-        execute "Stop clock" do
-          command %Q{
-            monit -g clock_#{application} stop all
-          }
-        end
+    execute "Restart clock" do
+      command %Q{
+        echo "sleep 20 && monit -g clock_#{application} restart all" | at now
+      }
+    end
 
-        file "#{node[:monit][:conf_dir]}/clock_#{application}.monitrc" do
-          action :delete
-        end
-      end
+  else
+    execute "Stop clock" do
+      command %Q{
+        monit -g clock_#{application} stop all
+      }
+    end
+
+    file "#{node[:monit][:conf_dir]}/clock_#{application}.monitrc" do
+      action :delete
+    end
+
+    execute "Reload monit" do
+      command %Q{
+        monit reload
+      }
     end
   end
 end

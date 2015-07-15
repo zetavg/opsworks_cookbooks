@@ -45,11 +45,19 @@ Reads the content of an application's `Procfile` and start each process with mon
 
 ### Worker
 
+This recipe writes an monit configuration to start workers using the command specified in the `Procfile`. It will be ignored if `Procfile` doesn't exists or the worker process type isn't specified. Include these recipes in the worker instances.
+
  - `procfile::worker` <kbd>Deploy</kbd>
+ - `procfile::worker-undeploy` <kbd>Undeploy</kbd>
+
+Note that the worker process count can be set through each application's `workers` environment variable (`deploy[:environment_variables][:workers]`). The default is 3.
 
 ### Clock
 
+This recipe writes an monit configuration to start a clock using the command specified in the `Procfile`. It will be ignored if `Procfile` doesn't exists or the clock process type isn't specified. Include these recipes in the clock instance.
+
  - `procfile::clock` <kbd>Deploy</kbd>
+ - `procfile::clock-undeploy` <kbd>Undeploy</kbd>
 
 ## Rails
 

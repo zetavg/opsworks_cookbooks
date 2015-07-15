@@ -21,6 +21,7 @@ node[:deploy].each do |application, deploy|
   end
 
   if worker_command
+    process_count = (deploy[:environment_variables] && deploy[:environment_variables][:workers]).to_i || 3
     template "#{node[:monit][:conf_dir]}/worker_#{application}.monitrc" do
       owner 'root'
       group 'root'
@@ -31,7 +32,7 @@ node[:deploy].each do |application, deploy|
         app_name: application,
         app_path: deploy[:deploy_to],
         process_type: 'worker',
-        process_count: 1
+        process_count: process_count
       })
     end
 
@@ -56,6 +57,12 @@ node[:deploy].each do |application, deploy|
 
     file "#{node[:monit][:conf_dir]}/worker_#{application}.monitrc" do
       action :delete
+    end
+
+    execute "Reload monit" do
+      command %Q{
+        monit reload
+      }
     end
   end
 end

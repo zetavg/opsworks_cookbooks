@@ -2,12 +2,15 @@ DEPENDENCIES
   mosh
   newrelic
   papertrail-rsyslog (~> 1.2.0)
+  redis (~> 3.0.4)
   zsh
 
 GRAPH
   apt (2.7.0)
   build-essential (2.2.3)
   curl (2.0.1)
+  install_from (3.0.4)
+  metachef (3.0.4)
   mosh (0.4.0)
     apt (>= 0.0.0)
     yum (>= 0.0.0)
@@ -17,12 +20,19 @@ GRAPH
     curl (>= 0.0.0)
     python (>= 0.0.0)
     yum (~> 3.0)
+  packagecloud (0.0.19)
   papertrail-rsyslog (1.2.0)
     rsyslog (~> 1.12.1)
   python (1.4.6)
     build-essential (>= 0.0.0)
     yum-epel (>= 0.0.0)
+  redis (3.0.4)
+    install_from (>= 0.0.0)
+    metachef (>= 0.0.0)
+    runit (>= 0.0.0)
   rsyslog (1.12.2)
+  runit (1.7.2)
+    packagecloud (>= 0.0.0)
   yum (3.6.1)
   yum-epel (0.6.2)
     yum (~> 3.2)

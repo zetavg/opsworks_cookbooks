@@ -16,4 +16,12 @@ node[:deploy].each do |application, deploy|
     group deploy[:group]
     variables(environment_variables: Dotenv::Escape.escape_double_quotes(environment_variables))
   end
+
+  template "#{node[:deploy][application][:deploy_to]}/current/.env" do
+    source ".env.erb"
+    mode 0644
+    owner deploy[:user]
+    group deploy[:group]
+    variables(environment_variables: Dotenv::Escape.escape_double_quotes(environment_variables))
+  end
 end

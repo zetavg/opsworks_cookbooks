@@ -1,4 +1,4 @@
-node[:deploy].each do |application, _deploy|
+node[:deploy].each do |application, deploy|
 
   procfile_path = "#{node[:deploy][application][:deploy_to]}/current/Procfile"
 
@@ -29,6 +29,7 @@ node[:deploy].each do |application, _deploy|
       variables({
         command: worker_command,
         app_name: application,
+        app_path: deploy[:deploy_to],
         process_type: 'worker',
         process_count: 1
       })

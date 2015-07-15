@@ -1,0 +1,5 @@
+name              "procfile"
+maintainer        "Neson"
+maintainer_email  "neson@dex.tw"
+description       "Reads the content of an application's Procfile and start each process with monit."
+version           "0.1.0"

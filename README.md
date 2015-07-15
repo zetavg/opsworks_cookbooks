@@ -11,6 +11,7 @@ Supported OS platforms: `Ubuntu 14.04 LTS`.
 
  - [Utilities](#utilities)
  - [Dotenv](#dotenv)
+ - [Procfile](#procfile)
  - [Rails](#rails)
  - [Webhooks](#webhooks)
  - [rsyslog Watch Files](#rsyslog-watch-files)
@@ -20,6 +21,7 @@ Supported OS platforms: `Ubuntu 14.04 LTS`.
    - [New Relic](#new-relic)
    - [Papertrail rsyslog](#papertrail-rsyslog)
  - [OS Packages](#os-packages)
+ - [Notes](#notes)
 
 ---
 
@@ -35,6 +37,19 @@ System utilities.
 ## Dotenv
 
  - `dotenv::default` <kbd>Deploy</kbd> - Generate an .env file for dotenv for each deploy.
+
+## Procfile
+
+Reads the content of an application's `Procfile` and start each process with monit. Currently supports
+`worker` and `clock`.
+
+### Worker
+
+ - `procfile::worker` <kbd>Deploy</kbd>
+
+### Clock
+
+ - `procfile::clock` <kbd>Deploy</kbd>
 
 ## Rails
 
@@ -174,3 +189,13 @@ Here are some recommended (or required) OS packages that can set to be installed
  - `nodejs` - system Node.js
  - `libpq-dev` - header files for libpq5, required if using PostgreSQL
  - `imagemagick` - commonly used for apps to create, edit, compose, or convert bitmap images
+
+
+Notes
+-----
+
+### Recipe Description Syntax
+
+The Recipe description used in this documentation follows this syntax as convention:
+
+ - `recipe::name` <kbd>OpsWorks lifecycle that recommend to set on</kbd> - recipe description

@@ -3,9 +3,14 @@ Cookbooks Collection for OpsWorks
 
 A collection of useful cookbooks for AWS OpsWorks.
 
+AWS OpsWorks is an application management service based on [Chef](https://www.chef.io/) that makes it easy for DevOps users to model & manage the entire application. This Cookbook collection provides some Recipes to enhance it for Ruby/Rails/Node.js application deployment and provide several additional functionalities.
+
+Supported OS platforms: `Ubuntu 14.04 LTS`.
+
 ---
 
  - [Utilities](#utilities)
+ - [Dotenv](#dotenv)
  - [Rails](#rails)
  - [Webhooks](#webhooks)
  - [rsyslog Watch Files](#rsyslog-watch-files)
@@ -14,8 +19,10 @@ A collection of useful cookbooks for AWS OpsWorks.
    - [Zsh](#zsh)
    - [New Relic](#new-relic)
    - [papertrail-rsyslog](#papertrail-rsyslog)
+ - [OS Packages](#os-packages)
 
 ---
+
 
 ## Utilities
 
@@ -104,6 +111,7 @@ Watch and send custom log files with rsyslog. Requires rsyslog.
 }
 ```
 
+
 3rd Party Cookbooks
 -------------------
 
@@ -154,3 +162,13 @@ Mobile shell, replacement for SSH.
 ['papertrail']['certificate_src'] = The URL of the certificate file on the Papertrail server
 ['papertrail']['certificate_checksum'] = The sha256 checksum for the Papertrail certificate file
 ```
+
+
+OS Packages
+-----------
+
+Here are some recommended (or required) OS packages that can set to be installed.
+
+ - `nodejs` - system Node.js
+ - `libpq-dev` - header files for libpq5, required if using PostgreSQL
+ - `imagemagick` - commonly used for apps to create, edit, compose, or convert bitmap images

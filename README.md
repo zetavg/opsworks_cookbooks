@@ -18,7 +18,7 @@ Supported OS platforms: `Ubuntu 14.04 LTS`.
    - [Mosh](#mosh)
    - [Zsh](#zsh)
    - [New Relic](#new-relic)
-   - [papertrail-rsyslog](#papertrail-rsyslog)
+   - [Papertrail rsyslog](#papertrail-rsyslog)
  - [OS Packages](#os-packages)
 
 ---
@@ -115,17 +115,19 @@ Watch and send custom log files with rsyslog. Requires rsyslog.
 3rd Party Cookbooks
 -------------------
 
-### Mosh
+Here are some 3rd party Cookbooks (included in `Berksfile`) and their common usage listed below.
+
+### [Mosh](https://supermarket.chef.io/cookbooks/mosh)
 
 Mobile shell, replacement for SSH.
 
  - `mosh::default` <kbd>Setup</kbd>
 
-### Zsh
+### [Zsh](https://supermarket.chef.io/cookbooks/zsh)
 
  - `zsh::default` <kbd>Setup</kbd>
 
-### New Relic
+### [New Relic](https://supermarket.chef.io/cookbooks/newrelic)
 
  - `newrelic::default` <kbd>Setup</kbd> - installs the New Relic agent that performs the server monitoring
 
@@ -146,7 +148,7 @@ Mobile shell, replacement for SSH.
   </tr>
 </table>
 
-### [papertrail-rsyslog](https://supermarket.chef.io/cookbooks/papertrail-rsyslog)
+### [Papertrail rsyslog](https://supermarket.chef.io/cookbooks/papertrail-rsyslog)
 
  - `papertrail-rsyslog::default` <kbd>Setup</kbd> - Setup logging to [Papertrail](https://papertrailapp.com/) (the full cookbook name should be used for OpsWorks)
 

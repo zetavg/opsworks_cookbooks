@@ -15,6 +15,7 @@ Supported OS platforms: `Ubuntu 14.04 LTS`.
  - [Rails](#rails)
  - [Webhooks](#webhooks)
  - [rsyslog Watch Files](#rsyslog-watch-files)
+ - [rsyslog Watch OpsWork Event](#rsyslog-watch-opswork-event)
  - [3rd Party Cookbooks](#3rd-party-cookbooks)
    - [Mosh](#mosh)
    - [Zsh](#zsh)
@@ -121,6 +122,12 @@ Send custom HTTP callbacks while specific events occurs.
 Watch and send custom log files with rsyslog. Requires rsyslog.
 
  - `rsyslog_watch_files::default` <kbd>Setup</kbd> - Setup watching custom files for rsyslog
+
+## rsyslog Watch OpsWork Event
+
+Report the OpsWork events log with rsyslog. Requires rsyslog and monit.
+
+ - `rsyslog_opswork_event::default` <kbd>Setup</kbd>
 
 ### Attribute
 

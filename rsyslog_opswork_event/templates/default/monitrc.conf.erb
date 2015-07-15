@@ -1,0 +1,5 @@
+check process <%= @name %>
+  with pidfile <%= @pidfile %>
+  start program = "/usr/bin/sudo su - root -c '<%= @command %> & echo $! > <%= @pidfile %>; fg'" with timeout 90 seconds
+  stop program = "/bin/bash -c '/bin/kill -TERM `cat <%= @pidfile %>`'" with timeout 180 seconds
+  group <%= @group %>

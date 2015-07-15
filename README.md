@@ -25,6 +25,10 @@ System utilities.
 
 - `utilities::locale_gen_zhtw` <kbd>Setup</kbd> - locale-gen zh_TW.UTF-8
 
+## Dotenv
+
+ - `dotenv::default` <kbd>Deploy</kbd> - Generate an .env file for dotenv for each deploy.
+
 ## Rails
 
 ### Command Line Shorthands

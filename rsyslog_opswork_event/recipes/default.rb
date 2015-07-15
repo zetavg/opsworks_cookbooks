@@ -31,6 +31,12 @@ template "#{node[:monit][:conf_dir]}/rsyslog_opswork_event.monitrc" do
   })
 end
 
+execute "Reload monit" do
+  command %Q{
+    monit reload
+  }
+end
+
 execute "Restart rsyslog_opswork_event" do
   command %Q{
     echo "sleep 20 && monit -g rsyslog_opswork_event restart all" | at now

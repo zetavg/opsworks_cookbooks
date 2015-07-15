@@ -16,7 +16,7 @@ $ModLoad imfile
 
 $InputFileName #{log_path}
 $InputFileTag opsworks_event
-$InputFileStateFile opsworks_event_watch_state_file_#{Digest::SHA1.hexdigest(rsyslog_conf_path)}
+$InputFileStateFile opsworks_event_watch_state_file_#{Digest::SHA1.hexdigest(rsyslog_conf_path + log_path)}
 $InputFilePollInterval 10
 $InputRunFileMonitor
   EOF

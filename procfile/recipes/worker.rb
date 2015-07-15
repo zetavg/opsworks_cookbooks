@@ -21,7 +21,7 @@ node[:deploy].each do |application, deploy|
   end
 
   if worker_command
-    process_count = (deploy[:environment_variables] && deploy[:environment_variables][:workers]).to_i || 3
+    process_count = ((deploy[:environment_variables] && deploy[:environment_variables][:workers]) || 3).to_i
     template "#{node[:monit][:conf_dir]}/worker_#{application}.monitrc" do
       owner 'root'
       group 'root'

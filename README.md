@@ -123,12 +123,6 @@ Watch and send custom log files with rsyslog. Requires rsyslog.
 
  - `rsyslog_watch_files::default` <kbd>Setup</kbd> - Setup watching custom files for rsyslog
 
-## rsyslog Watch OpsWork Event
-
-Report the OpsWork events log with rsyslog. Requires rsyslog and monit.
-
- - `rsyslog_opswork_event::default` <kbd>Setup</kbd>
-
 ### Attribute
 
 `node['rsyslog']['watch_files']`: A hash of files and associated tags that will be configured to be watched and included for rsyslog logging. Example:
@@ -140,6 +134,12 @@ Report the OpsWork events log with rsyslog. Requires rsyslog and monit.
   "/var/log/aws/opsworks/opsworks-agent.log": "opsworks-agent"
 }
 ```
+
+## rsyslog Watch OpsWork Event
+
+Report the OpsWork events log with rsyslog. Requires rsyslog and monit.
+
+ - `rsyslog_opswork_event::default` <kbd>Setup</kbd>
 
 
 3rd Party Cookbooks

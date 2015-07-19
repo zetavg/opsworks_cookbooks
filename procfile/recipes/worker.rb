@@ -1,6 +1,8 @@
 node[:deploy].each do |application, deploy|
 
-  procfile_path = "#{node[:deploy][application][:deploy_to]}/current/Procfile"
+  deploy_to = node[:deploy][application][:deploy_to]
+  current_deploy_path = Dir["#{deploy_to}/releases/*"].max_by { |f| File.mtime(f) }
+  procfile_path = "#{current_deploy_path}/Procfile"
 
   worker_command = nil
 
@@ -39,6 +41,12 @@ node[:deploy].each do |application, deploy|
     execute "Reload monit" do
       command %Q{
         monit reload
+      }
+    end
+
+    execute "Restart worker" do
+      command %Q{
+        echo "sleep 20 && monit -g worker_#{application} restart all" | at now
       }
     end
 

@@ -1,6 +1,8 @@
 node[:deploy].each do |application, deploy|
 
-  procfile_path = "#{node[:deploy][application][:deploy_to]}/current/Procfile"
+  deploy_to = node[:deploy][application][:deploy_to]
+  current_deploy_path = Dir["#{deploy_to}/releases/*"].max_by { |f| File.mtime(f) }
+  procfile_path = "#{current_deploy_path}/Procfile"
 
   clock_command = nil
 

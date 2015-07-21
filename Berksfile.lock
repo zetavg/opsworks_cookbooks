@@ -3,6 +3,7 @@ DEPENDENCIES
   newrelic
   papertrail-rsyslog (~> 1.2.0)
   redis (~> 3.0.4)
+  swap
   zsh
 
 GRAPH
@@ -33,6 +34,7 @@ GRAPH
   rsyslog (1.12.2)
   runit (1.7.2)
     packagecloud (>= 0.0.0)
+  swap (0.3.8)
   yum (3.6.1)
   yum-epel (0.6.2)
     yum (~> 3.2)

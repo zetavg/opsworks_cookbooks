@@ -1,0 +1,5 @@
+name              "swap"
+maintainer        "Neson"
+maintainer_email  "neson@dex.tw"
+description       "Set swap."
+version           "1.0.0"

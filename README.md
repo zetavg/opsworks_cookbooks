@@ -16,6 +16,7 @@ Supported OS platforms: `Ubuntu 14.04 LTS`.
  - [Webhooks](#webhooks)
  - [rsyslog Watch Files](#rsyslog-watch-files)
  - [rsyslog Watch OpsWork Event](#rsyslog-watch-opswork-event)
+ - [swap](#swap)
  - [3rd Party Cookbooks](#3rd-party-cookbooks)
    - [Mosh](#mosh)
    - [Zsh](#zsh)
@@ -140,6 +141,13 @@ Watch and send custom log files with rsyslog. Requires rsyslog.
 Report the OpsWork events log with rsyslog. Requires rsyslog and monit.
 
  - `rsyslog_opswork_event::default` <kbd>Setup</kbd>
+
+## swap
+
+ - `swap::1024` <kbd>Setup</kbd> - Setup swapfile to 1024MB
+ - `swap::2048` <kbd>Setup</kbd> - Setup swapfile to 2048MB
+ - `swap::4096` <kbd>Setup</kbd> - Setup swapfile to 4096MB
+ - `swap::remove` - Remove swapfile
 
 
 3rd Party Cookbooks

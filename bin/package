@@ -1,0 +1,40 @@
+#!/usr/bin/env sh
+
+set -e
+
+git_push_url=$(git config --get remote.origin.url)
+
+echo '----> Packaging Berkshelf Cookbooks'
+berks package
+mkdir package_git_push
+mv cookbooks-*.tar.gz package_git_push/cookbooks.tar.gz
+
+echo '----> Preparing Package'
+cd package_git_push
+tar -xzvf cookbooks.tar.gz
+cd cookbooks
+rsync -a --exclude='package_git_push/' --exclude='.git/' --exclude='.gitignore' --exclude='Berksfile' --exclude='Berksfile.lock' ../../ ./
+
+echo '----> Pushing to Remote'
+git init
+git remote add origin "$git_push_url"
+git checkout -b packaged
+git add --all && git commit -m 'packaged'
+git push --set-upstream origin packaged -f
+
+# echo '----> Preparing Archive'
+# cd ..
+# rm cookbooks.tar.gz
+# tar -pczf cookbooks.tar.gz cookbooks
+# rm -rf cookbooks
+
+# echo '----> Pushing Archive to Remote'
+# git init
+# git remote add origin "$git_push_url"
+# git checkout -b packaged-archive
+# git add --all && git commit -m 'packaged-archive'
+# git push --set-upstream origin packaged-archive -f
+
+echo '----> Done'
+cd ..
+rm -rf package_git_push

@@ -1,0 +1,5 @@
+default[:webhooks_setup_url] = []
+default[:webhooks_configure_url] = []
+default[:webhooks_deploy_url] = []
+default[:webhooks_undeploy_url] = []
+default[:webhooks_shutdown_url] = []

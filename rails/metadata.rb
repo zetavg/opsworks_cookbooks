@@ -1,0 +1,5 @@
+name              "rails"
+maintainer        "Neson"
+maintainer_email  "neson@dex.tw"
+description       "Rails Cookbook."
+version           "1.0.0"

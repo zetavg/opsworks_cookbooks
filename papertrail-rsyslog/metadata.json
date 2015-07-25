@@ -1,0 +1,149 @@
+{
+  "name": "papertrail-rsyslog",
+  "description": "Installs/Configures rsyslog streaming into Papertrail",
+  "long_description": "Description [![Build Status](https://travis-ci.org/widgit-cookbooks/papertrail-rsyslog.png)](https://travis-ci.org/widgit-cookbooks/papertrail-rsyslog)\n===========\nA simple cookbook for setting up a server to stream logs into Papertrail via a secure\nTCP connection.\n\n\nRequirements\n============\nBuilt to run on systems with Rsyslog installed. Tested on Ubuntu 12.04\n\n\nAttributes\n==========\n\n    ['papertrail']['port'] = The Papertrail log destination port number (required)\n    ['papertrail']['host'] = The Papertrail host address (defaults to logs)\n    ['papertrail']['syslog_selector'] = The syslog tags and types to stream into Papertrail (defaults to \"*.*\")\n    ['papertrail']['resume_retry_count'] = The number of times to retry the sending of failed messages (defaults to unlimited)\n    ['papertrail']['queue_disk_space'] = The maximum disk space allowed for queues (default to 100M)\n    ['papertrail']['enable_tls'] = Whether to encrypt all log traffic going into Papertrail (default to True)\n    ['papertrail']['certificate_src'] = The URL of the certificate file on the Papertrail server\n    ['papertrail']['certificate_checksum'] = The sha256 checksum for the Papertrail certificate file\n\n\nUsage\n=====\nFirst, make sure you set the ['papertrail']['port'] attribute in your Role/Environment,\nto the destination port created in Papertrail. Then include the `papertrail::default` recipe\nin you run list to start streaming all syslog entries to Papertrail.\n\n\n### Tailing log files\nThis functionality is currently not available, but will be provided via the Opscode Rsyslog cookbook\n(included as a dependency), where there is an open pull request for it at the time of this writing.\n\n\nDevelopment\n============\nPlease refer to the Readme [here](https://github.com/hipsnip-cookbooks/cookbook-development/blob/master/README.md)\n\n\nLicense and Author\n==================\n\nAuthor:: Adam Borocz ([on GitHub](https://github.com/motns))\nMaintainer:: Simon Detheridge ([on GitHub](https://github.com/gh2k))\n\nCopyright:: 2013, HipSnip Ltd.\nCopyright:: 2014, Symbols Worldwide Ltd.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Symbols Worldwide Ltd.",
+  "maintainer_email": "simon@widgit.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 12.04"
+  },
+  "dependencies": {
+    "rsyslog": "~> 1.12.1"
+  },
+  "recommendations": {
+
+  },
+  "suggestions": {
+
+  },
+  "conflicting": {
+
+  },
+  "providing": {
+
+  },
+  "replacing": {
+
+  },
+  "attributes": {
+    "papertrail/port": {
+      "display_name": "Port number",
+      "description": "The port number on the papertrail service that we should be sending log entries to",
+      "required": "required",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/host": {
+      "display_name": "Host Address",
+      "description": "The host address on the papertrail service that we should be sending log entries to",
+      "type": "string",
+      "default": "logs",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/syslog_selector": {
+      "display_name": "Syslog Selector",
+      "description": "The syslog tags that should be piped into Papertrail - defaults to all",
+      "type": "string",
+      "default": "*.*",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/resume_retry_count": {
+      "display_name": "Retry Count",
+      "description": "The number of times to retry the sending of failed messages (defaults to unlimited)",
+      "default": "-1",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/queue_disk_space": {
+      "display_name": "Queue Disk Space",
+      "description": "The maximum disk space allowed for queues",
+      "type": "string",
+      "default": "100M",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/enable_tls": {
+      "display_name": "Enable TLS",
+      "description": "Whether to encrypt all log traffic going into papertrail",
+      "default": "true",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/certificate_src": {
+      "display_name": "Certificate Source",
+      "description": "The URL of the certificate file on the Papertrail server",
+      "type": "string",
+      "default": "https://papertrailapp.com/tools/syslog.papertrail.crt",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "papertrail/certificate_checksum": {
+      "display_name": "Certificate Checksum",
+      "description": "The sha256 checksum for the Papertrail certificate file",
+      "type": "string",
+      "default": "7d6bdd1c00343f6fe3b21db8ccc81e8cd1182c5039438485acac4d98f314fe10",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+
+  },
+  "recipes": {
+
+  },
+  "version": "1.2.0"
+}

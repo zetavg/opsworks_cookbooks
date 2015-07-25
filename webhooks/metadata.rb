@@ -1,0 +1,5 @@
+name              "webhooks"
+maintainer        "Neson"
+maintainer_email  "neson@dex.tw"
+description       "Send custom HTTP callbacks while specific events occurs."
+version           "1.0.0"

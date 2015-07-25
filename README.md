@@ -23,6 +23,7 @@ Supported OS platforms: `Ubuntu 14.04 LTS`.
    - [New Relic](#new-relic)
    - [Papertrail rsyslog](#papertrail-rsyslog)
  - [OS Packages](#os-packages)
+ - [Packaging](#packaging)
  - [Notes](#notes)
 
 ---
@@ -212,6 +213,12 @@ Here are some recommended (or required) OS packages that can set to be installed
  - `nodejs` - system Node.js
  - `libpq-dev` - header files for libpq5, required if using PostgreSQL
  - `imagemagick` - commonly used for apps to create, edit, compose, or convert bitmap images
+
+
+Packaging
+---------
+
+Run `bin/package` to package this cookbook collection with all the dependencies and push it to the `packaged` branch of git remote server. The archives can be used for faster installation (no need to download all dependencies while installing the cookbook), especially while each run on OpsWorks.
 
 
 Notes

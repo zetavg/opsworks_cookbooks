@@ -1,4 +1,11 @@
 #!/usr/bin/env sh
+#
+# bin/package
+#
+# Package this cookbook collection with all the dependencies and push it to the
+# `packaged` branch of git remote server. The archives can be used for faster
+# installation (no need to download all dependencies while installing the
+# cookbook), especially while each run on OpsWorks.
 
 set -e
 

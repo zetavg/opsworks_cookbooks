@@ -220,6 +220,8 @@ Packaging
 
 Run `bin/package` to package this cookbook collection with all the dependencies and push it to the `packaged` branch of git remote server. The archives can be used for faster installation (no need to download all dependencies while installing the cookbook), especially while each run on OpsWorks.
 
+![Stack Custom Cookbooks on OpsWorks](http://i.imgur.com/Kb8GrAe.png)
+
 
 Notes
 -----
@@ -229,3 +231,5 @@ Notes
 The Recipe description used in this documentation follows this syntax as convention:
 
  - `recipe::name` <kbd>OpsWorks lifecycle that recommend to set on</kbd> - recipe description
+
+![Layer Custom Chef Recipes on OpsWorks](http://i.imgur.com/bPJuYXH.png)
